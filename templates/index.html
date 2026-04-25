@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Perfect Movie</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background-orb orb-one"></div>
+    <div class="background-orb orb-two"></div>
+    <div class="grain"></div>
+
+    <main class="app-shell">
+        <section id="landing-screen" class="screen active">
+            <div class="hero-card glass-panel">
+                <p class="eyebrow">Movie Matchmaker</p>
+                <h1>Find Your Perfect Movie <span>🎬</span></h1>
+                <p class="hero-copy">
+                    Answer a few playful questions and get one movie recommendation tailored to your vibe,
+                    your mood, and the time you have tonight.
+                </p>
+
+                <div class="hero-highlights">
+                    <div class="highlight-pill">Mood-based picks</div>
+                    <div class="highlight-pill">Runtime-aware</div>
+                    <div class="highlight-pill">Beginner-friendly</div>
+                </div>
+
+                <button id="start-button" class="primary-button glow-button">Start Exploring</button>
+            </div>
+        </section>
+
+        <section id="question-screen" class="screen">
+            <div class="glass-panel question-panel">
+                <div class="question-header">
+                    <div>
+                        <p class="eyebrow">Quick Quiz</p>
+                        <h2 id="question-title">Question</h2>
+                    </div>
+                    <span id="question-count" class="step-badge">1 / 4</span>
+                </div>
+
+                <div class="progress-track">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+
+                <div id="question-options" class="options-grid"></div>
+
+                <div class="question-actions">
+                    <button id="back-button" class="secondary-button">Back</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="loading-screen" class="screen">
+            <div class="glass-panel loading-panel">
+                <div class="loader-ring">
+                    <div class="loader-core">🍿</div>
+                </div>
+                <h2>Finding your perfect movie... 🍿</h2>
+                <p>We are scanning the cinematic universe for the best fit.</p>
+            </div>
+        </section>
+
+        <section id="result-screen" class="screen">
+            <div class="glass-panel result-panel">
+                <div class="poster-placeholder" id="poster-placeholder">
+                    <span id="poster-emoji">🎞️</span>
+                </div>
+
+                <div class="result-content">
+                    <p class="eyebrow">Tonight's Pick</p>
+                    <h2 id="movie-title">Movie Title</h2>
+                    <div id="movie-genres" class="tag-list"></div>
+
+                    <div class="meta-row">
+                        <div class="meta-card">
+                            <span class="meta-label">Runtime</span>
+                            <strong id="movie-runtime">--</strong>
+                        </div>
+                        <div class="meta-card">
+                            <span class="meta-label">Rating</span>
+                            <strong id="movie-rating">--</strong>
+                        </div>
+                    </div>
+
+                    <div class="copy-block">
+                        <h3>Overview</h3>
+                        <p id="movie-overview"></p>
+                    </div>
+
+                    <div class="copy-block">
+                        <h3>Why this was recommended</h3>
+                        <p id="movie-reason"></p>
+                    </div>
+
+                    <button id="retry-button" class="primary-button">Try Again</button>
+                </div>
+            </div>
+        </section>
+        <div class="reason-box" id="trailer-section" style="display:none;">
+  
+  <!-- 6 -->
+            <div class="reason-label">🎥 Trailer</div>
+  <iframe
+    id="trailer"
+    title="Movie trailer"
+    src=""
+    allow="autoplay; encrypted-media; picture-in-picture"
+    allowfullscreen
+    style="display:none; width:100%; aspect-ratio:16 / 9; border:0; border-radius:12px;"
+  ></iframe>
+  <p class="reason-text" id="trailer-fallback" style="display:none; margin-top:12px;">Trailer not available.</p>
+</div>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+htt
