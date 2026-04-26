@@ -7,8 +7,10 @@ from flask import Flask, jsonify, render_template, request
 import random, json, os
 from urllib import error, parse, request as urllib_request
 
+
+# creates server
 app = Flask(__name__)
-# 2
+
 TMDB_API_KEY = os.getenv("TMDB_API_KEY")
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -20,6 +22,7 @@ MOOD_TO_GENRES = {
     "Thrilling": ["Action", "Thriller"],
     "Chill": ["Animation", "Comedy"],
 }
+# happy interpreted as comedy+family
 
 
 def parse_genres(raw_value):
@@ -174,11 +177,12 @@ def recommend_movie(genre, mood, time_choice, preference):
     }
 
 
+# loads ui
 @app.route("/")
 def index():
     return render_template("index.html")
 
-
+# recommend
 @app.route("/recommend", methods=["POST"])
 def recommend():
     payload = request.get_json(silent=True) or {}

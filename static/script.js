@@ -71,7 +71,9 @@ const questions = [
     },
 ];
 
+// which question the user is on
 let currentStep = 0;
+//stores user selection
 let answers = {};
 
 function showScreen(target) {
@@ -120,7 +122,7 @@ function renderQuestion() {
     });
 }
 
-// NEW CHANGE: helper to safely reset/hide trailer when moving between states
+//  helper to safely reset/hide trailer when moving between states
 function resetTrailer() {
     if (!resultElements.trailer || !resultElements.trailerSection || !resultElements.trailerMessage) {
         return;
@@ -160,9 +162,9 @@ function updateResults(movie) {
         resultElements.genres.appendChild(tag);
     });
 
-    // resultElements.poster.textContent = pickPosterEmoji(genres);
+    
 
-    // NEW CHANGE: trailer handling
+    // trailer handling
     if (resultElements.trailer && resultElements.trailerSection && resultElements.trailerMessage) {
         resultElements.trailerSection.style.display = "block";
 
@@ -179,15 +181,7 @@ function updateResults(movie) {
     }
 }
 
-// function pickPosterEmoji(genres) {
-//     if (genres.includes("Romance")) return "💘";
-//     if (genres.includes("Comedy")) return "😂";
-//     if (genres.includes("Thriller")) return "🕵️";
-//     if (genres.includes("Animation")) return "✨";
-//     if (genres.includes("Action")) return "🔥";
-//     if (genres.includes("Science Fiction")) return "🚀";
-//     return "🎞️";
-// }
+
 
 async function fetchRecommendation() {
     showScreen(screens.loading);
