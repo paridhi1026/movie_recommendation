@@ -38,7 +38,7 @@ def load_movies():
     """Load and clean the dataset once when the app starts."""
     movies = pd.read_csv(DATA_PATH)
     movies = movies[
-        ["title", "genres", "overview", "runtime", "popularity", "vote_average", "vote_count"]
+        ["id", "title", "genres", "overview", "runtime", "popularity", "vote_average", "vote_count"]
     ].copy()
 
     movies["genre_list"] = movies["genres"].apply(parse_genres)

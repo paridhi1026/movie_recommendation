@@ -20,7 +20,7 @@ const resultElements = {
     reason: document.getElementById("movie-reason"),
     runtime: document.getElementById("movie-runtime"),
     rating: document.getElementById("movie-rating"),
-    poster: document.getElementById("poster-emoji"),
+    // poster: document.getElementById("poster-emoji"),
 
     // NEW CHANGE: trailer-related DOM elements
     trailer: document.getElementById("trailer"),
@@ -160,7 +160,7 @@ function updateResults(movie) {
         resultElements.genres.appendChild(tag);
     });
 
-    resultElements.poster.textContent = pickPosterEmoji(genres);
+    // resultElements.poster.textContent = pickPosterEmoji(genres);
 
     // NEW CHANGE: trailer handling
     if (resultElements.trailer && resultElements.trailerSection && resultElements.trailerMessage) {
@@ -179,15 +179,15 @@ function updateResults(movie) {
     }
 }
 
-function pickPosterEmoji(genres) {
-    if (genres.includes("Romance")) return "💘";
-    if (genres.includes("Comedy")) return "😂";
-    if (genres.includes("Thriller")) return "🕵️";
-    if (genres.includes("Animation")) return "✨";
-    if (genres.includes("Action")) return "🔥";
-    if (genres.includes("Science Fiction")) return "🚀";
-    return "🎞️";
-}
+// function pickPosterEmoji(genres) {
+//     if (genres.includes("Romance")) return "💘";
+//     if (genres.includes("Comedy")) return "😂";
+//     if (genres.includes("Thriller")) return "🕵️";
+//     if (genres.includes("Animation")) return "✨";
+//     if (genres.includes("Action")) return "🔥";
+//     if (genres.includes("Science Fiction")) return "🚀";
+//     return "🎞️";
+// }
 
 async function fetchRecommendation() {
     showScreen(screens.loading);
